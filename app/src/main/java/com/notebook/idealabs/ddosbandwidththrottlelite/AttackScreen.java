@@ -36,8 +36,6 @@ public class AttackScreen extends Activity {
         EditText Port_no = (EditText) findViewById(R.id.Port_No);
         EditText Packet_size = (EditText) findViewById(R.id.Packet_Size);
         EditText Thread_Count = (EditText) findViewById(R.id.Thread_Count);
-        Progress.setEnabled(false);
-        Thread_Count.setFocusable(false);
         final Button b = (Button) v;
 
         String check = null;
@@ -65,6 +63,8 @@ public class AttackScreen extends Activity {
             Flag = false;
         if(Flag)
             return;
+
+        Progress.setEnabled(false);
 
         if (dosService.firing) {
             this.dosSer.stop();
