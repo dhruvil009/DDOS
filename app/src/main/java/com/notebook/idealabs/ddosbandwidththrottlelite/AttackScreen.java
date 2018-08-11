@@ -45,27 +45,27 @@ public class AttackScreen extends Activity {
         String check2 = null;
         String check3 = null;
         boolean Flag = true;
-        while(Flag) {
-            try {
-                check = Timeout.getText().toString();
-                check1 = Port_no.getText().toString();
-                check2 = Packet_size.getText().toString();
-                check3 = Thread_Count.getText().toString();
-            } catch (Exception e) {
-                Toast.makeText(this, "Please Enter all Values", Toast.LENGTH_SHORT).show();
-            }
-            if (check == null || check.equals(""))
-                Timeout.setError("This Field Needs To Be filled");
-            else if (check1 == null || check1.equals(""))
-                Port_no.setError("This Field Needs To Be filled");
-            else if (check2 == null || check2.equals(""))
-                Packet_size.setError("This Field Needs To Be filled");
-            else if (check3 == null || check3.equals(""))
-                Thread_Count.setError("This Field Needs To Be filled");
-            else
-                Flag = false;
-            System.out.println(check3);
+        try {
+            check = Timeout.getText().toString();
+            check1 = Port_no.getText().toString();
+            check2 = Packet_size.getText().toString();
+            check3 = Thread_Count.getText().toString();
+        } catch (Exception e) {
+            Toast.makeText(this, "Please Enter all Values", Toast.LENGTH_SHORT).show();
         }
+        if (check == null || check.equals(""))
+            Timeout.setError("This Field Needs To Be filled");
+        else if (check1 == null || check1.equals(""))
+            Port_no.setError("This Field Needs To Be filled");
+        else if (check2 == null || check2.equals(""))
+            Packet_size.setError("This Field Needs To Be filled");
+        else if (check3 == null || check3.equals(""))
+            Thread_Count.setError("This Field Needs To Be filled");
+        else
+            Flag = false;
+        if(Flag)
+            return;
+
         if (dosService.firing) {
             this.dosSer.stop();
             b.setText(R.string.attackstart);
