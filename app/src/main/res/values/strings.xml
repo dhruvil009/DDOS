@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DDOS</string>
+    <string name="start_attack">Start Attack</string>
+    <string name="timeout">TimeOut</string>
+    <string name="port_no">Port No.</string>
+    <string name="packet_size">Packet Size</string>
+    <string name="simultaneous_attack">Threads</string>
+    <string name="Alert">This Application is for educational purpose only. Developer is not responsible for any kind of misuse.</string>
+    <string name="packetpersec">Packets/Second :</string>
+    <string name="packethits">Packet Hits :</string>
+    <string name="datarate">Data Rate :</string>
+    <string name="Time">Time :</string>
+    <string name="urlip" translatable="false">URL/IP</string>
+    <string name="lockbtn">Lock And Proceed</string>
+    <string name="attackstart">Start</string>
+    <string name="attackstop">Stop</string>
+    <string name="more">More Apps By Notebook Inc</string>
+</resources>

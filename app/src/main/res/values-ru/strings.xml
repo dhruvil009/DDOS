@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DDOS</string>
+    <string name="start_attack">Начать атаку</string>
+    <string name="timeout">Время ожидания</string>
+    <string name="port_no">Номер порта</string>
+    <string name="packet_size">Размер пакета</string>
+    <string name="Alert">Это приложение предназначено только для образовательной цели. Разработчик не несет ответственности за любое неправильное использование.</string>
+    <string name="packetpersec">Пакеты / Второе:</string>
+    <string name="packethits">Пакетные подсказки:</string>
+    <string name="datarate">Скорость передачи данных :</string>
+    <string name="Time">Время:</string>
+    <string name="lockbtn">Заблокировать и продолжить</string>
+    <string name="attackstart">Начало</string>
+    <string name="attackstop">Стоп</string>
+    <string name="more">Другие приложения от Notebook Inc</string>
+</resources>

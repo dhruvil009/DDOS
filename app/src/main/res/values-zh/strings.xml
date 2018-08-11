@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DDOS</string>
+    <string name="start_attack">开始攻击</string>
+    <string name="timeout">时间到</string>
+    <string name="port_no">港口号</string>
+    <string name="packet_size">包大小</string>
+    <string name="Alert">此应用程序仅用于教育目的。开发人员不对任何类型的滥用负责。</string>
+    <string name="packetpersec">数据包/秒：</string>
+    <string name="packethits">包命中：</string>
+    <string name="datarate">数据速率 ：</string>
+    <string name="Time">时间 ：</string>
+    <string name="lockbtn">锁定并继续</string>
+    <string name="attackstart">开始</string>
+    <string name="attackstop">停止</string>
+    <string name="more">更多Notebook Inc的应用程序</string>
+</resources>

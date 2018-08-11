@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "983810010596",
+    "firebase_url": "https://ddos-lite.firebaseio.com",
+    "project_id": "ddos-lite",
+    "storage_bucket": "ddos-lite.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983810010596:android:18ceee73608ce38f",
+        "android_client_info": {
+          "package_name": "com.notebook.idealabs.ddosbandwidththrottlelite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983810010596-r7n0k1t4lkn399cc2melr7khs5qe4o63.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.notebook.idealabs.ddosbandwidththrottlelite",
+            "certificate_hash": "a3e2320b2613023d4c2e215eb9f3e8463f472ebc"
+          }
+        },
+        {
+          "client_id": "983810010596-eukcqp7v7crs66thept81t2pskqcaf1m.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "983810010596-eukcqp7v7crs66thept81t2pskqcaf1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhqiSUSNgBESM7c276RZIHAaETnGbmJOM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983810010596-eukcqp7v7crs66thept81t2pskqcaf1m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

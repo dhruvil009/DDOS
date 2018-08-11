@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Alert">Diese Anwendung dient nur zu Ausbildungszwecken. Der Entwickler ist nicht verantwortlich für irgendeine Art von Missbrauch.</string>
+    <string name="simultaneous_attack">Simultaner Angriff</string>
+    <string name="packet_size">Paketgröße</string>
+    <string name="port_no">Portnummer</string>
+    <string name="timeout">Auszeit</string>
+    <string name="start_attack">Beginne den Angriff</string>
+    <string name="packetpersec">Pakete / Sekunde:</string>
+    <string name="packethits">Pakettreffer:</string>
+    <string name="datarate">Datenrate :</string>
+    <string name="lockbtn">Sperren und fortfahren</string>
+    <string name="app_name">DDOS</string>
+    <string name="Time">Zeit :</string>
+    <string name="attackstart">Anfang</string>
+    <string name="attackstop">Halt</string>
+    <string name="more">Weitere Apps von Notebook Inc</string>
+</resources>

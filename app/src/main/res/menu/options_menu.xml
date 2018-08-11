@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_share" android:id="@+id/share_menu_id" android:title="Share" android:showAsAction="ifRoom" />
+    <item android:icon="@drawable/ic_rate" android:id="@+id/rate_us_menu_id" android:title="Rate Us" android:showAsAction="ifRoom" />
+    <item android:id="@+id/more_apps_menu_id" android:title="@string/more" android:titleCondensed="Notebook Inc"/>
+</menu>
