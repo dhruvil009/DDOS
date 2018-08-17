@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.notebook.idealabs.ddosbandwidththrottlelite"
         minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 11
-        versionName "2.0"
+        targetSdkVersion 28
+        versionCode 12
+        versionName "2.1"
     }
     lintOptions {
         checkReleaseBuilds false
@@ -34,9 +34,10 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    //implementation 'com.google.android.gms:play-services-ads-lite:11.8.0'
-    implementation 'com.google.firebase:firebase-core:11.8.0'
-    implementation 'com.google.firebase:firebase-perf:11.8.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    //implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-perf:16.1.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.0'
 }
 apply plugin: 'com.google.gms.google-services'
