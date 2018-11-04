@@ -6,6 +6,7 @@
     <string name="packet_size">Packet Size</string>
     <string name="simultaneous_attack">Threads</string>
     <string name="Alert">This Application is for educational purpose only. Developer is not responsible for any kind of misuse.</string>
+    <string name="rate">If you enjoy using DDoS, Would you take a moment to Rate it. We promise it won\'t be more than a minute.</string>
     <string name="packetpersec">Packets/Second :</string>
     <string name="packethits">Packet Hits :</string>
     <string name="datarate">Data Rate :</string>
