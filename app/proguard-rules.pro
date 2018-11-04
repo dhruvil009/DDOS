@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepattributes *Annotation*
+-keepclassmembers class com.google.**.R$* {
+    public static <fields>;
+}
+-keep public class com.google.ads.** {*;}
+-keep public class com.google.android.gms.** {*;}
+-keep public class com.tappx.** { *; }

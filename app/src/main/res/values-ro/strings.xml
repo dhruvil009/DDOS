@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DDOS</string>
+    <string name="start_attack">Începe Atacul</string>
+    <string name="timeout">Fără Răspuns</string>
+    <string name="port_no">Nr. Port</string>
+    <string name="packet_size">Dimensiunea Pachetului</string>
+    <string name="Alert">Această aplicație a fost creată pentru scopuri educaționale. Dezvoltatorul nu este responsabil pentru orice fel de daune cauzate.</string>
+    <string name="simultaneous_attack">Threads</string>
+    <string name="packetpersec">Pachete/Secundă</string>
+    <string name="packethits">Lovituri ale pachetului</string>
+    <string name="datarate">Rata de date</string>
+    <string name="Time">Timp</string>
+    <string name="lockbtn">Finalizează și continuă</string>
+    <string name="attackstart">Start</string>
+    <string name="attackstop">Stop</string>
+    <string name="more">Mai multe aplicații de la Notebook Inc.</string>
+</resources>

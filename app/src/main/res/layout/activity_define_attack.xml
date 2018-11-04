@@ -5,7 +5,6 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context="com.notebook.idealabs.ddosbandwidththrottlelite.DefineAttack">
 
     <Button
@@ -20,25 +19,24 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/lockbtn"
+        android:background="@drawable/button_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.501" />
 
-    <!--
-    <com.google.android.gms.ads.AdView
+    <!--<com.google.android.gms.ads.AdView
         android:id="@+id/ad_bottom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-1364271166547745/8553894637"
+        ads:adUnitId="ca-app-pub-3357807421712227/3721408695"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
-    -->
+        app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>-->
 
     <LinearLayout
         android:layout_width="368dp"
