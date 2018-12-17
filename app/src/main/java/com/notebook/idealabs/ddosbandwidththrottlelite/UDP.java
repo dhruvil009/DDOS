@@ -34,6 +34,7 @@ public class UDP implements Runnable {
                 sendData = this.message.getBytes();
                 clientSocket.send(new DatagramPacket(sendData, sendData.length, IPAddress, this.port));
                 count++;
+                clientSocket.close();
                 Thread.sleep((long) this.pause);
             } catch (Exception e) {
                 e.printStackTrace();

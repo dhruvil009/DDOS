@@ -53,7 +53,7 @@ public class DefineAttack extends Activity {
         if (sharedPreferences.getBoolean("Rate", true)) {
             editor.putInt("Count", sharedPreferences.getInt("Count", 0) + 1);
             editor.apply();
-            if(sharedPreferences.getInt("Count", 0) == 5 || sharedPreferences.getInt("Count", 0) == 10 || (sharedPreferences.getInt("Count", 0)%20) == 0) {
+            if(sharedPreferences.getInt("Count", 0) == 5 || sharedPreferences.getInt("Count", 0) == 9 || ((sharedPreferences.getInt("Count", 0)>9) && (sharedPreferences.getInt("Count", 0)%3) == 0)) {
                 new AlertDialog.Builder(DefineAttack.this).setTitle("Enjoying the App").setMessage(getString(string.rate)).setPositiveButton("Rate Now", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         editor.putBoolean("Rate", false);
@@ -105,7 +105,7 @@ public class DefineAttack extends Activity {
 
                 check = this.Ip_Address;
                 if(check != null && check.compareToIgnoreCase("None") != 0 && check.compareToIgnoreCase("") != 0) {
-                    Toast.makeText(this, this.Ip_Address, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, this.Ip_Address, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(this, AttackScreen.class);
                     intent.putExtra("Target", check);
                     startActivity(intent);
@@ -182,14 +182,14 @@ public class DefineAttack extends Activity {
                     return true;
                 }
             case R.id.credits:
-                Intent intent = new Intent(this, Translations.class);
-                startActivity(intent);
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://docs.google.com/spreadsheets/d/1cCo5LJhfwjjWM7ampBVkdVHbGHhidSuLJzu1aLkA85o/edit?usp=sharing")));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void onPause() {
+    /*public void onPause() {
         super.onPause();
     }
 
@@ -200,7 +200,7 @@ public class DefineAttack extends Activity {
     public void onDestroy() {
         super.onDestroy();
     }
-
+*/
     /*public static void deleteCache(Context context) {
         try {
             File dir = context.getCacheDir();

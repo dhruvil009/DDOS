@@ -1,5 +1,7 @@
 package com.notebook.idealabs.ddosbandwidththrottlelite;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Admin on 10-09-2017.
  */
@@ -18,6 +20,11 @@ public class dosService {
                     for (i = 0; i < threads; i++) {
                         socketThreadsTCP[i] = new TCP(ip, port, timeout, message, pause);
                         new Thread(socketThreadsTCP[i]).start();
+                        try {
+                            TimeUnit.MILLISECONDS.sleep(1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                     return;
                 } catch (Error e) {
@@ -30,6 +37,11 @@ public class dosService {
                 for (i = 0; i < threads; i++) {
                     socketThreadsUDP[i] = new UDP(ip, port, message, pause);
                     new Thread(socketThreadsUDP[i]).start();
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 return;
             case 2:
@@ -37,6 +49,11 @@ public class dosService {
                 for (i = 0; i < threads; i++) {
                     socketThreadsHTTP[i] = new HTTP(ip, timeout, pause);
                     new Thread(socketThreadsHTTP[i]).start();
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 return;
             default:
@@ -46,6 +63,7 @@ public class dosService {
 
     public void stop() {
         firing = false;
+        System.gc();
     }
 }
 

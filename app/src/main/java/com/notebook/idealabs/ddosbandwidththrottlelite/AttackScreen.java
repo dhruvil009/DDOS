@@ -81,20 +81,26 @@ public class AttackScreen extends Activity {
         String[] letters = new String[]{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
         Random rnd = new Random();
         String message = "";
-        int size = Integer.parseInt(Packet_size.getText().toString());
-        //if (size > 8000)
-            //size = 8000;
-        int Threads = Integer.parseInt(Thread_Count.getText().toString());
-        //if (Threads > 25)
-            //Threads = 25;
+        int size,Threads,timeout;
+        try {
+            size = Integer.parseInt(Packet_size.getText().toString());
+            Threads = Integer.parseInt(Thread_Count.getText().toString());
+            timeout = Integer.parseInt(Timeout.getText().toString());
+        }catch (Exception e){
+            size = 1024;
+            Threads = 3;
+            timeout = 14000;
+        }
+
         while (size > 0) {
             message = message.concat(letters[rnd.nextInt(letters.length)]);
             size--;
         }
+
         final byte[] packet = message.getBytes();
         final int method = Progress.getSelectedItemPosition();
         try {
-            this.dosSer.DDOS(Target_Ip, Integer.parseInt(Port_no.getText().toString()), method, Threads, Integer.parseInt(Timeout.getText().toString()), message, 10);
+            this.dosSer.DDOS(Target_Ip, Integer.parseInt(Port_no.getText().toString()), method, Threads, timeout, message, 10);
             b.setText(R.string.attackstop);
             new Thread(new Runnable() {
                 public void run() {
@@ -144,7 +150,7 @@ public class AttackScreen extends Activity {
                             b.setText(R.string.attackstart);
                         }
                         try {
-                            Thread.sleep(5);
+                            Thread.sleep(50);
                         } catch (Exception e) {
                             Toast.makeText(AttackScreen.this, "Try Entering smaller values for no of threads and packet size", Toast.LENGTH_LONG).show();
                         }
@@ -189,8 +195,8 @@ public class AttackScreen extends Activity {
                     return true;
                 }
             case R.id.credits:
-                Intent intent = new Intent(this, Translations.class);
-                startActivity(intent);
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://docs.google.com/spreadsheets/d/1cCo5LJhfwjjWM7ampBVkdVHbGHhidSuLJzu1aLkA85o/edit?usp=sharing")));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".AttackScreen" />
-        <activity android:name=".Translations"></activity>
     </application>
 
 </manifest>
