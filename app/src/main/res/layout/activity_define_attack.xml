@@ -78,7 +78,7 @@
             android:layout_marginEnd="20dp"
             android:layout_weight="1.5"
             android:ems="10"
-            android:hint="8.8.8.8"
+            android:hint="8.8.8.8 or www.google.com"
             android:textColor="@android:color/background_dark"
             android:textColorHint="@android:color/background_dark"
             android:textColorLink="@android:color/background_dark"
