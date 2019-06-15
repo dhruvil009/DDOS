@@ -1,8 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="CustomTheme">
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="CustomTheme" parent="android:Theme.DeviceDefault.Light.DarkActionBar" >
+
+    </style>
 </resources>

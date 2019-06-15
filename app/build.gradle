@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.notebook.idealabs.ddosbandwidththrottlelite"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 27
         versionCode 27
         versionName "3.2"

@@ -1,6 +1,7 @@
 package com.notebook.idealabs.ddosbandwidththrottlelite;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.pm.ConfigurationInfo;
 
 import java.util.Random;
 
@@ -29,7 +31,9 @@ public class AttackScreen extends Activity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Target_Ip = extras.getString("Target");
-            this.mWakeLock = ((PowerManager) getSystemService(POWER_SERVICE)).newWakeLock(6, "DOSLock");
+            this.mWakeLock = ((PowerManager) getSystemService(POWER_SERVICE)).newWakeLock(6, ":DOSLock");
+            ConfigurationInfo configurationInfo;
+            configurationInfo = new ConfigurationInfo(ActivityManager.MemoryInfo);
         }
     }
 
@@ -90,6 +94,13 @@ public class AttackScreen extends Activity {
             size = 1024;
             Threads = 3;
             timeout = 14000;
+        }
+
+        //Todo ; Get Ram Size
+        int ramsize = ;
+        if(size*Threads*1024 > ramsize/4){
+            Threads = (ramsize/4)/size;
+            Toast.makeText(this, "Setting Threads to "+Threads+" : Memory Constraints", Toast.LENGTH_SHORT);
         }
 
         while (size > 0) {
