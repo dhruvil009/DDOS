@@ -20,7 +20,7 @@ import android.content.pm.ConfigurationInfo;
 import java.util.Random;
 
 public class AttackScreen extends Activity {
-    private dosService dosSer = new dosService();
+    private final dosService dosSer = new dosService();
     String Target_Ip;
     protected PowerManager.WakeLock mWakeLock;
 
@@ -32,8 +32,6 @@ public class AttackScreen extends Activity {
         if (extras != null) {
             Target_Ip = extras.getString("Target");
             this.mWakeLock = ((PowerManager) getSystemService(POWER_SERVICE)).newWakeLock(6, ":DOSLock");
-            ConfigurationInfo configurationInfo;
-            configurationInfo = new ConfigurationInfo(ActivityManager.MemoryInfo);
         }
     }
 
@@ -59,13 +57,13 @@ public class AttackScreen extends Activity {
         } catch (Exception e) {
             Toast.makeText(this, "Please Enter all Values", Toast.LENGTH_SHORT).show();
         }
-        if (check == null || check.equals(""))
+        if (check == null || check.isEmpty())
             Timeout.setError("This Field Needs To Be filled");
-        else if (check1 == null || check1.equals(""))
+        else if (check1 == null || check1.isEmpty())
             Port_no.setError("This Field Needs To Be filled");
-        else if (check2 == null || check2.equals(""))
+        else if (check2 == null || check2.isEmpty())
             Packet_size.setError("This Field Needs To Be filled");
-        else if (check3 == null || check3.equals(""))
+        else if (check3 == null || check3.isEmpty())
             Thread_Count.setError("This Field Needs To Be filled");
         else
             Flag = false;
@@ -96,11 +94,14 @@ public class AttackScreen extends Activity {
             timeout = 14000;
         }
 
-        //Todo ; Get Ram Size
-        int ramsize = ;
-        if(size*Threads*1024 > ramsize/4){
-            Threads = (ramsize/4)/size;
-            Toast.makeText(this, "Setting Threads to "+Threads+" : Memory Constraints", Toast.LENGTH_SHORT);
+        // (get available memory):
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        activityManager.getMemoryInfo(memoryInfo);
+        long ramsize = memoryInfo.availMem / 1024; // Available memory in KB
+        if((long) size *Threads*1024 > ramsize/4){
+            Threads = (int) ((ramsize/4)/size);
+            Toast.makeText(this, "Setting Threads to "+Threads+" : Memory Constraints", Toast.LENGTH_SHORT).show();
         }
 
         while (size > 0) {
@@ -124,30 +125,30 @@ public class AttackScreen extends Activity {
                             case 0:
                                 AttackScreen.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        elapsed_time_id.setText("" + (((double) (System.currentTimeMillis() - TCP.startTime)) / 1000.0d) + "s");
+                                        elapsed_time_id.setText((((double) (System.currentTimeMillis() - TCP.startTime)) / 1000.0d) + "s");
                                         hit_id.setText("" + TCP.count);
                                         packetsPerSec_id.setText("" + Math.round(((double) TCP.count) / (((double) (System.currentTimeMillis() - TCP.startTime)) / 1000.0d)));
-                                        attack_speed_id.setText("" + (((long) (packet.length / 1024)) * Math.round(((double) TCP.count) / (((double) (System.currentTimeMillis() - TCP.startTime)) / 1000.0d))) + " kB/s");
+                                        attack_speed_id.setText((((long) (packet.length / 1024)) * Math.round(((double) TCP.count) / (((double) (System.currentTimeMillis() - TCP.startTime)) / 1000.0d))) + " kB/s");
                                     }
                                 });
                                 break;
                             case 1:
                                 AttackScreen.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        elapsed_time_id.setText("" + (((double) (System.currentTimeMillis() - UDP.startTime)) / 1000.0d) + "s");
+                                        elapsed_time_id.setText((((double) (System.currentTimeMillis() - UDP.startTime)) / 1000.0d) + "s");
                                         hit_id.setText("" + UDP.count);
                                         packetsPerSec_id.setText("" + Math.round(((double) UDP.count) / (((double) (System.currentTimeMillis() - UDP.startTime)) / 1000.0d)));
-                                        attack_speed_id.setText("" + (((long) (packet.length / 1024)) * Math.round(((double) UDP.count) / (((double) (System.currentTimeMillis() - UDP.startTime)) / 1000.0d))) + " kB/s");
+                                        attack_speed_id.setText((((long) (packet.length / 1024)) * Math.round(((double) UDP.count) / (((double) (System.currentTimeMillis() - UDP.startTime)) / 1000.0d))) + " kB/s");
                                     }
                                 });
                                 break;
                             case 2:
                                 AttackScreen.this.runOnUiThread(new Runnable() {
                                     public void run() {
-                                        elapsed_time_id.setText("" + (((double) (System.currentTimeMillis() - HTTP.startTime)) / 1000.0d) + "s");
+                                        elapsed_time_id.setText((((double) (System.currentTimeMillis() - HTTP.startTime)) / 1000.0d) + "s");
                                         hit_id.setText("" + HTTP.count);
                                         packetsPerSec_id.setText("" + Math.round(((double) HTTP.count) / (((double) (System.currentTimeMillis() - HTTP.startTime)) / 1000.0d)));
-                                        attack_speed_id.setText("" + (((long) "GET / HTTP/1.1".getBytes().length) * Math.round(((double) HTTP.count) / (((double) (System.currentTimeMillis() - HTTP.startTime)) / 1000.0d))) + " Byte/s");
+                                        attack_speed_id.setText((((long) "GET / HTTP/1.1".getBytes().length) * Math.round(((double) HTTP.count) / (((double) (System.currentTimeMillis() - HTTP.startTime)) / 1000.0d))) + " Byte/s");
                                     }
                                 });
                                 break;
@@ -155,7 +156,7 @@ public class AttackScreen extends Activity {
 
                         if (dosService.error) {
                             AttackScreen.this.dosSer.stop();
-                            elapsed_time_id.setText("" + (((double) (System.currentTimeMillis() - TCP.startTime)) / 1000.0d) + "s");
+                            elapsed_time_id.setText((((double) (System.currentTimeMillis() - TCP.startTime)) / 1000.0d) + "s");
                             hit_id.setText("Something went wrong");
                             packetsPerSec_id.setText("Something went wrong");
                             b.setText(R.string.attackstart);
